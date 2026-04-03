@@ -5,8 +5,16 @@
   "author": "SADU Development e.U. (https://sadu.at)",
   "license": "MIT",
   "homepage": "https://sadu.at",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vuln3r/medusa-plugin-itrk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vuln3r/medusa-plugin-itrk/issues"
+  },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   },
   "main": "./.medusa/server/src/index.js",
   "types": "./.medusa/server/src/index.d.ts",
@@ -20,10 +28,8 @@
     ".": "./.medusa/server/src/index.js",
     "./package.json": "./package.json",
     "./types": "./.medusa/server/src/types.js",
-    "./workflows": "./.medusa/server/src/workflows/index.js",
     "./.medusa/server/src/modules/*": "./.medusa/server/src/modules/*/index.js",
     "./modules/*": "./.medusa/server/src/modules/*/index.js",
-    "./providers/*": "./.medusa/server/src/providers/*/index.js",
     "./*": "./.medusa/server/src/*.js",
     "./admin": {
       "import": "./.medusa/server/src/admin/index.mjs",
