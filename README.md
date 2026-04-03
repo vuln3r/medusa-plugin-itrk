@@ -1,6 +1,6 @@
-# @sadu/medusa-plugin-itrk
+# @sadu-dev/medusa-plugin-itrk
 
-`@sadu/medusa-plugin-itrk` is a Medusa v2 plugin for receiving IT-Recht Kanzlei XML pushes, storing the latest legal-document variant per sales channel and locale, and exposing those documents through a store API.
+`@sadu-dev/medusa-plugin-itrk` is a Medusa v2 plugin for receiving IT-Recht Kanzlei XML pushes, storing the latest legal-document variant per sales channel and locale, and exposing those documents through a store API.
 
 Maintained by `SADU Development e.U.` at `https://sadu.at`.
 
@@ -19,19 +19,19 @@ Maintained by `SADU Development e.U.` at `https://sadu.at`.
 ## Install
 
 ```bash
-pnpm add @sadu/medusa-plugin-itrk
+pnpm add @sadu-dev/medusa-plugin-itrk
 ```
 
 Then register the plugin in `medusa-config.ts`:
 
 ```ts
 import { defineConfig } from "@medusajs/framework/utils"
-import type { ItrkPluginOptionsInput } from "@sadu/medusa-plugin-itrk/types"
+import type { ItrkPluginOptionsInput } from "@sadu-dev/medusa-plugin-itrk/types"
 
 export default defineConfig({
   plugins: [
     {
-      resolve: "@sadu/medusa-plugin-itrk",
+      resolve: "@sadu-dev/medusa-plugin-itrk",
       options: {
         token: "your-itrk-token",
         shopVersion: "1.0.0",
@@ -58,8 +58,8 @@ export default defineConfig({
 
 ## Exported types
 
-- `@sadu/medusa-plugin-itrk`
-- `@sadu/medusa-plugin-itrk/types`
+- `@sadu-dev/medusa-plugin-itrk`
+- `@sadu-dev/medusa-plugin-itrk/types`
 
 The package exports `itrkPluginOptionsSchema`, `ItrkPluginOptions`, and `ItrkPluginOptionsInput`.
 
