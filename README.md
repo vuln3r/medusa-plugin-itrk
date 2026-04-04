@@ -1,6 +1,14 @@
 # @sadu-dev/medusa-plugin-itrk
 
-`@sadu-dev/medusa-plugin-itrk` is a Medusa v2 plugin for receiving IT-Recht Kanzlei XML pushes, storing the latest legal-document variant per sales channel and locale, and exposing those documents through a store API.
+[![npm version](https://img.shields.io/npm/v/%40sadu-dev%2Fmedusa-plugin-itrk)](https://www.npmjs.com/package/@sadu-dev/medusa-plugin-itrk)
+[![npm downloads](https://img.shields.io/npm/dm/%40sadu-dev%2Fmedusa-plugin-itrk)](https://www.npmjs.com/package/@sadu-dev/medusa-plugin-itrk)
+[![publish workflow](https://github.com/vuln3r/medusa-plugin-itrk/actions/workflows/publish-npm.yml/badge.svg)](https://github.com/vuln3r/medusa-plugin-itrk/actions/workflows/publish-npm.yml)
+[![node](https://img.shields.io/node/v/%40sadu-dev%2Fmedusa-plugin-itrk)](https://nodejs.org/)
+[![license](https://img.shields.io/npm/l/%40sadu-dev%2Fmedusa-plugin-itrk)](LICENSE)
+
+`@sadu-dev/medusa-plugin-itrk` is a Medusa v2 plugin that keeps your storefront legal pages in sync with updates from IT-Recht Kanzlei (`https://www.it-recht-kanzlei.de/`), a German legal content provider for ecommerce shops.
+
+In practice, the plugin accepts IT-Recht Kanzlei XML updates, stores the latest document version per sales channel and language, and serves those documents through a store API so your frontend can always show current legal texts (for example terms and conditions, privacy policy, imprint, and withdrawal information).
 
 Maintained by `SADU Development e.U.` at `https://sadu.at`.
 
