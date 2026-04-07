@@ -1,3 +1,6 @@
+import medusaPackageJson from "@medusajs/medusa/package.json";
+import pluginPackageJson from "../../../../package.json";
+
 import {
   itrkPluginOptionsSchema,
   itrkPushPayloadSchema,
@@ -194,6 +197,15 @@ describe("ItrkModuleService.handlePush", () => {
       17,
     );
   });
+
+  it("uses the installed Medusa version for shopVersion", () => {
+    const service = createService();
+
+    expect(service.getVersions()).toMatchObject({
+      shopVersion: medusaPackageJson.version,
+      moduleVersion: pluginPackageJson.version,
+    });
+  });
 });
 
 function createService(overrides?: Record<string, unknown>) {
@@ -201,7 +213,6 @@ function createService(overrides?: Record<string, unknown>) {
     {},
     itrkPluginOptionsSchema.parse({
       token: "TEST_TOKEN",
-      shopVersion: "1.0.0",
       channels: [
         {
           salesChannelId: "sc_123",

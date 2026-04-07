@@ -64,7 +64,6 @@ export const itrkChannelSchema = z
 
 export const itrkPluginOptionsSchema = z.object({
   token: nonEmptyTrimmedStringSchema,
-  shopVersion: nonEmptyTrimmedStringSchema,
   channels: z.array(itrkChannelSchema).min(1),
 });
 

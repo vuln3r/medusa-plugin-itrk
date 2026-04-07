@@ -30,7 +30,7 @@ Maintained by `SADU Development e.U.` at `https://sadu.at`.
 pnpm add @sadu-dev/medusa-plugin-itrk
 ```
 
-Then register the plugin in `medusa-config.ts`:
+Then register the plugin in your Medusa backend's `medusa-config.ts` file at the project root (`<your-medusa-project>/medusa-config.ts`):
 
 ```ts
 import { defineConfig } from "@medusajs/framework/utils"
@@ -42,7 +42,6 @@ export default defineConfig({
       resolve: "@sadu-dev/medusa-plugin-itrk",
       options: {
         token: "your-itrk-token",
-        shopVersion: "1.0.0",
         channels: [
           {
             salesChannelId: "sc_...",
@@ -63,6 +62,16 @@ export default defineConfig({
   ],
 })
 ```
+
+`meta_shopversion` is derived automatically from the installed `@medusajs/medusa` version.
+
+Choose the `token` value yourself and enter the same value in both Medusa and IT-Recht Kanzlei. IT-Recht Kanzlei does not issue or generate this token for you.
+
+## IT-Recht Kanzlei Setup
+
+When configuring the API URL in IT-Recht Kanzlei, enter only your Medusa backend base URL.
+
+Do not append `/integrations/itrk` manually.
 
 ## Exported types
 
