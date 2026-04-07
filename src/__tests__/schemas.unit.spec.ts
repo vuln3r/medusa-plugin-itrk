@@ -4,7 +4,6 @@ describe("itrkPluginOptionsSchema", () => {
   it("preserves configured locale casing for channel languages", () => {
     const parsed = itrkPluginOptionsSchema.parse({
       token: "token",
-      shopVersion: "1.0.0",
       channels: [
         {
           salesChannelId: "sc_123",
@@ -23,7 +22,6 @@ describe("itrkPluginOptionsSchema", () => {
   it("requires an account name when accountId is not 0", () => {
     const result = itrkPluginOptionsSchema.safeParse({
       token: "token",
-      shopVersion: "1.0.0",
       channels: [
         {
           salesChannelId: "sc_123",
@@ -54,7 +52,6 @@ describe("itrkPluginOptionsSchema", () => {
   it("allows an empty account name when accountId is 0", () => {
     const parsed = itrkPluginOptionsSchema.parse({
       token: "token",
-      shopVersion: "1.0.0",
       channels: [
         {
           salesChannelId: "sc_123",
@@ -67,5 +64,22 @@ describe("itrkPluginOptionsSchema", () => {
     });
 
     expect(parsed.channels[0].accountName).toBe("");
+  });
+
+  it("does not expose shopVersion in parsed plugin options", () => {
+    const parsed = itrkPluginOptionsSchema.parse({
+      token: "token",
+      channels: [
+        {
+          salesChannelId: "sc_123",
+          accountId: "0",
+          accountName: "",
+          languages: ["de"],
+          countries: ["DE"],
+        },
+      ],
+    });
+
+    expect(parsed).not.toHaveProperty("shopVersion");
   });
 });

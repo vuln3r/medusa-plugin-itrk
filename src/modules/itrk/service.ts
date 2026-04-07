@@ -1,6 +1,7 @@
 import { MedusaService } from "@medusajs/framework/utils";
+import medusaPackageJson from "@medusajs/medusa/package.json";
 
-import packageJson from "../../../package.json";
+import pluginPackageJson from "../../../package.json";
 import LegalDocument from "./models/legal-document";
 import type {
   ItrkDocumentType,
@@ -10,6 +11,7 @@ import type {
 
 type InjectedDependencies = Record<string, never>;
 type ItrkResolvedOptions = ItrkPluginOptions & {
+  shopVersion: string;
   moduleVersion: string;
 };
 type ItrkPushResult = {
@@ -55,24 +57,27 @@ export default class ItrkModuleService extends MedusaService({
   LegalDocument,
 }) {
   protected readonly options_: ItrkPluginOptions;
-  protected readonly moduleVersion_: string = packageJson.version;
+  protected readonly moduleVersion_: string = pluginPackageJson.version;
+  protected readonly shopVersion_: string;
 
   constructor(deps: InjectedDependencies, options: ItrkPluginOptions) {
     super(deps);
 
     this.options_ = options;
+    this.shopVersion_ = medusaPackageJson.version;
   }
 
   getOptions(): ItrkResolvedOptions {
     return {
       ...this.options_,
+      shopVersion: this.shopVersion_,
       moduleVersion: this.moduleVersion_,
     };
   }
 
   getVersions() {
     return {
-      shopVersion: this.options_.shopVersion,
+      shopVersion: this.shopVersion_,
       moduleVersion: this.moduleVersion_,
     };
   }
