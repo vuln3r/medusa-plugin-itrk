@@ -33,7 +33,6 @@ jobs:
         with:
           node-version: 22
           cache: pnpm
-          registry-url: https://registry.npmjs.org
 
       - name: Validate tag matches package version
         shell: bash
